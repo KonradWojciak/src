@@ -10,14 +10,14 @@ const DEBOUNCE_DELAY = 300;
 
 const inputBox = document.querySelector("input");
 
-inputBox.addEventListener( "input",
+inputBox.addEventListener(
+  "input",
   debounce(async () => {
-    const inputValue = searchBox.value.trim();
+    const inputValue = inputBox.value.trim();
     const countries = await fetchCountries(inputValue);
 
     countryList.innerHTML = "";
     countryInfo.innerHTML = "";
-    }
 
     countries.forEach((country) => {
       const li = document.createElement("li");
@@ -34,8 +34,7 @@ inputBox.addEventListener( "input",
         <li>Capital: ${country.capital}</li>
         <li>Population: ${country.population}</li>
         <li>Languages: ${Object.values(country.languages).join(", ")}</li>
-      </ul>
-    `;
+      </ul>`;
         countryInfo.innerHTML = "";
         countryInfo.appendChild(info);
       });
